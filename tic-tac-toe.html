@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body{
+            background-color:bisque;
+            text-align:center;
+            font-size:25px;        
+        }
+        .board {
+            display: grid;
+            width: 100vw;
+            height: 70vh;
+            justify-content: center;
+            align-content: center;
+            grid-template-columns: repeat(3,auto);
+        }
+        .cell{
+            width:15vw;
+            height:25vh;
+            text-align:center;
+            font-size:30px;
+        }
+        
+
+        .br {
+            border-bottom: 3px solid black;
+            border-right: 3px solid black;
+        }
+        .b{
+             border-bottom:3px solid black;
+        }
+        .r{
+            border-right:3px solid black;
+        }
+       
+    </style>
+</head>
+<body id="bdy" onload="func()">
+    <h1 id="h1">TIC-TAC-TOE</h1>
+    <div class="board">
+        <div class="cell br" id="1"></div>
+        <div class="cell br" id="2"></div>
+        <div class="cell b" id="3"></div>
+        <div class="cell br" id="4"></div>
+        <div class="cell br" id="5"></div>
+        <div class="cell b" id="6"></div>
+        <div class="cell r" id="7"></div>
+        <div class="cell r" id="8"></div>
+        <div class="cell" id="9"></div>
+    </div>
+    <br />
+    <script>
+        var final=0;
+        var turn;
+        var a=[];
+        function func()
+        {
+            turn=10;
+            a=[0,0,0,0,0,0,0,0,0];
+            btn_()
+        }
+        function btn_()
+        {
+            for(var i=1;i<=9;i++)
+            {
+                if(turn==10)
+                    turn=0;
+                
+                var btn=document.createElement("button");
+                btn.style.width="15vw";
+                btn.style.height="25vh";
+                btn.style.cursor="pointer";
+                btn.style.fontSize="x-large";
+                btn.textAlign="center";
+                btn.setAttribute("id","b"+i);
+                btn.setAttribute("onclick","dis("+i+")");
+                document.getElementById(""+i).appendChild(btn);
+            }
+        }
+        function dis(i)
+        { 
+            
+            var ele=document.getElementById(""+i);
+            if(turn==0)
+            {   a[i-1]='x';
+                ele.innerHTML='<br><br><img src="cross.jpg" width="50" height="50"/><br>';                 
+                ele.style.backgroundColor="lightpink";
+                turn=1;
+                check(0);                 
+            }
+            else
+            {   a[i-1]='o';
+                ele.innerHTML='<br><br><img src="circle.jpg" width="50" height="50"/>';  
+                 ele.style.backgroundColor="lightpink";
+                turn=0;
+                check(1);                
+            }
+            checkfortie();
+        }   
+        function checkfortie()
+        {var f=0;
+          for(var i=0;i<9;i++)
+           {
+                if(!(a[i]=='x' || a[i]=='o'))
+                {f=1;break;}
+            }
+            if(f==0 && final==0)
+            {
+                var h1=document.getElementById("h1");          
+                h1.innerText="Draw Game";
+                display();
+            }
+        }
+        function check(p)
+        {   var com=(p==0)?'x':'o';
+            if(a[0]==com && a[1]==com && a[2]==com)
+            {
+                setColor(1);setColor(2);setColor(3);
+                winner(com);
+            }
+            else if(a[3]==com && a[4]==com && a[5]==com)
+            {
+                setColor(4);setColor(5);setColor(6);winner(com);
+            }
+            else if(a[6]==com && a[7]==com && a[8]==com)
+            {
+                setColor(7);setColor(8);setColor(9);winner(com);
+            }
+            else if(a[0]==com && a[3]==com && a[6]==com)
+            {
+                setColor(1);setColor(4);setColor(7);winner(com);
+            }
+            else if(a[1]==com && a[4]==com && a[7]==com)
+            {
+                setColor(2);setColor(5);setColor(8);winner(com);
+            }
+            else if(a[2]==com && a[5]==com && a[8]==com)
+            {
+                setColor(3);setColor(6);setColor(9);winner(com);
+            }
+             else if(a[0]==com && a[4]==com && a[8]==com)
+            {
+                setColor(1);setColor(5);setColor(9);winner(com);
+            }
+            else if(a[2]==com && a[4]==com && a[6]==com)
+            {
+                setColor(3);setColor(5);setColor(7);winner(com);
+            }
+          }
+        function setColor(id)
+        {document.getElementById(""+id).style.backgroundColor="lightgreen";
+        }
+        function winner(w)
+        {                                                  
+            var h1=document.getElementById("h1");          
+            h1.innerText=w.toUpperCase()+" is Winner";
+            display();
+        }
+        function display()
+        {   for(var i=1;i<=9;i++)
+            {var bt=document.getElementById("b"+i);
+                if(bt!=null)
+                bt.disabled=true;
+            }
+            var btn=document.createElement("button");
+            btn.innerText="PlayAgain";
+            btn.style.width="100px";
+            btn.style.height="50px";
+            btn.style.backgroundColor="black";
+            btn.style.color="white";
+            btn.setAttribute("onclick","reload()");           
+            document.body.appendChild(btn);
+            final=1;
+        }
+        function reload()
+        {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
