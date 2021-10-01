@@ -1,0 +1,59 @@
+
+<div class="card mb-5 mb-lg-0">
+    <div class="card-body">
+      <h5 class="card-title text-muted text-uppercase text-center">{{myData.title}}</h5>
+      <h6 class="card-price text-center">{{myData.price}}<span class="period">/month</span></h6>
+      <hr>
+      <ul class="fa-ul">
+        <li><span class="fa-li"><i class="fas fa-check"></i></span>{{myData.no_of_users}} User</li>
+        <li><span class="fa-li"><i class="fas fa-check"></i></span>{{myData.Storage}} Storage</li>
+
+        <li *ngIf="myData.UnlimitedPublicProjects; else projects">
+          <span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects
+        </li>
+        <ng-template #projects>
+          <span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects
+        </ng-template>
+
+        <li *ngIf="myData.CommunityAccess; else community">
+          <span class="fa-li"><i class="fas fa-check"></i></span>Community Access
+        </li>
+        <ng-template #community>
+          <span class="fa-li"><i class="fas fa-check"></i></span>Community Access
+        </ng-template>
+
+        <li *ngIf="!myData.UnlimitedPrivateProjects; else private" class="text-muted">
+          <span class="fa-li"><i class="fas fa-times"></i></span>Unlimited
+          Private Projects
+        </li>
+        <ng-template #private>
+          <li><span class="fa-li"><i class="fas fa-times"></i></span>Unlimited Private Projects</li>
+        </ng-template>
+
+        <li *ngIf="!myData.DedicatedPhoneSupport; else phone" class="text-muted">
+          <span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support
+        </li>
+        <ng-template #phone>
+          <li><span class="fa-li"><i class="fas fa-times"></i></span>Dedicated Phone Support</li>
+        </ng-template>
+
+        <li *ngIf="!myData.FreeSubdomain; else subdomain" class="text-muted">
+          <span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain
+        </li>
+        <ng-template #subdomain>
+          <li><span class="fa-li"><i class="fas fa-times"></i></span>Free Subdomain</li>
+        </ng-template>
+
+        <li *ngIf="!myData.MonthlyStatusReports; else reports" class="text-muted">
+          <span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports
+        </li>
+        <ng-template #reports>
+          <li><span class="fa-li"><i class="fas fa-times"></i></span>Monthly Status Reports</li>
+        </ng-template>
+
+      </ul>
+      <div class="d-grid">
+        <a href="#" class="btn btn-primary text-uppercase">Button</a>
+      </div>
+    </div>
+  </div>
