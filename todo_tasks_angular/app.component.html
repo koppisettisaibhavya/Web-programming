@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div class="card">
+  <div class="card-body">
+    <h5 class="card-title">TODO Tasks</h5>
+    <form class="row g-3">
+      <div class="col-auto">
+        <input type="text" class="form-control"  placeholder="Enter Text"  [(ngModel)]="textValue" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3" (click)="addTask()">ADD TASK</button>
+      </div>
+      <div class="form-check" *ngFor="let task of taskitems">
+        <label class="form-check-label" for="flexRadioDefault1">
+          <app-task [myData]="task" (selectEvent)="selecteditem($event)"></app-task>
+        </label>
+        
+    </div>
+    <button type="button" class="btn btn-danger" (click)="remove()">REMOVE TASK</button>
+    </form>
+  </div>
+</div>
+</div>
