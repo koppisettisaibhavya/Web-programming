@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Trending Top -->
+        <div class="trending-top mb-30">
+            <div class="trend-top-img">
+                <img src="assets/img/news/weekly2News3.jpg" alt="">
+                <div class="trend-top-cap">
+                    <span>Appetizers</span>
+                    <h2><a href="details.html">Welcome To The Best Model Winner<br> Contest At Look of
+                            the year</a></h2>
+                </div>
+            </div>
+        </div>
+        <!-- Trending Bottom -->
+        <div class="trending-bottom">
+            <div class="row">
+                <div *ngFor="let item of trending_bottom" class="col-lg-4">
+                    <div class="single-bottom mb-35">
+                        <div class="trend-bottom-img mb-30">
+                            <img src="{{item['img']}}" alt="">
+                        </div>
+                        <div class="trend-bottom-cap">
+                            <span class={{item.color}}>{{item.title}}</span>
+                            <h4><a [routerLink]="['/horizontal',item.id]">{{item.desc}}</a></h4>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div *ngFor="let item of trending_right" class="trand-right-single d-flex">
+            <div class="trand-right-img">
+                <img src={{item.img}} height="120" alt="">
+            </div>
+            <div class="trand-right-cap">
+                <span class={{item.color}}>{{item.title}}</span>
+                <h4><a [routerLink]="['/vertical',item.id]">{{item.desc}}</a></h4>
+            </div>
+        </div>
+    </div>
+    
+</div>
