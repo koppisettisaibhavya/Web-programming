@@ -1,0 +1,12 @@
+.has-error{
+    border-color: red;
+}
+.has-success{
+    border-color: green;
+}
+.color{
+    color:red;
+}
+.test{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

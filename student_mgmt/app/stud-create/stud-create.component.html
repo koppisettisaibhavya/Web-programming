@@ -1,0 +1,36 @@
+<h1>Add Student</h1>
+<form [formGroup]="userForm" (ngSubmit)="submit_details()">
+    <div class="mb-3 p-3">
+      <div class="row">
+        <div class="col-lg-6">
+          <label for="" class="form-label">Rollno</label>
+          <input  [ngClass]="{
+            'has-error':userForm.controls.rollno.touched && userForm.controls.rollno.invalid,
+            'has-success' : userForm.controls.rollno.touched && userForm.controls.rollno.valid
+        }" type="number" class="form-control" formControlName="rollno">
+        <span class="color" *ngIf="userForm.controls.rollno.touched && userForm.controls.rollno.invalid">Please enter Valid rollno</span>
+        </div>
+        <div class="col-lg-6">
+          <label for="" class="form-label">Name</label>
+          <input [ngClass]="{
+            'has-error':userForm.controls.name.touched && userForm.controls.name.invalid,
+            'has-success' : userForm.controls.name.touched && userForm.controls.name.valid
+        }" type="text" class="form-control" formControlName="name">
+        <span class="color" *ngIf="userForm.controls.name.touched && userForm.controls.name.invalid">Please enter Valid name</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <label for="" class="form-label">Email</label>
+          <input [ngClass]="{
+            'has-error':userForm.controls.email.touched && userForm.controls.email.invalid,
+            'has-success' : userForm.controls.email.touched && userForm.controls.email.valid
+        }" type="text" class="form-control" formControlName="email">
+        <span class="color" *ngIf="userForm.controls.email.touched && userForm.controls.email.invalid">Please enter Valid email</span>
+        </div>
+      </div>
+      
+    </div>
+    
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>

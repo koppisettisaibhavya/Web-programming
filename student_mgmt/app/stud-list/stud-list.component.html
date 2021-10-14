@@ -1,0 +1,50 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Student List</h1>
+    <a routerLink="/stud-create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus"></i> Add Student</a>
+</div>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Student Data</h6>
+            </div>
+
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>rollno</th>
+                                <th>name</th>
+                                <th>email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>rollno</th>
+                                <th>name</th>
+                                <th>email</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+
+                        <tbody>
+                            <tr *ngFor="let stud of studList">
+                                <td>{{stud.id}}</td>
+                                <td>{{stud.rollno}}</td>
+                                <td>{{stud.name}}</td>
+                                <td>{{stud.email}}</td>
+                                
+                                <td>
+                                    <button [routerLink]="['/stud-update',stud.id]" class="btn btn-primary btn-sm mr-2">Edit</button>
+                                    <button class="btn btn-danger btn-sm" (click)="deleteData(stud.id)">Delete</button>
+                                    
+                                </td>
+                            </tr>                            
+                            </tbody>
+
+                    </table>
+                    </div>
+        </div>
