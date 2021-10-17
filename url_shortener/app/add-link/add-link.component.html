@@ -1,0 +1,17 @@
+
+<form [formGroup]="linkform" (ngSubmit)="shorten()" class="row g-3 m-5">
+    <h1 class="text-center">Shorten your link</h1>
+    
+    <div class="col-lg-6">
+      <input [ngClass]="{'error':(linkform.controls.link.touched && linkform.controls.link.invalid)||
+      (linkform.controls.link.touched && linkform.controls.link.dirty),
+      'success':(linkform.controls.link.touched && linkform.controls.link.valid)}"
+      
+        style='height:50px;' type="text" class="form-control" id=""
+       placeholder="Shorten your url" formControlName="link">
+       <span class="errtxt" *ngIf="linkform.controls.link.touched && linkform.controls.link.invalid">Please enter valid url</span>
+    </div>
+    <div class="col-auto">
+      <input style='height:50px;width:200px;' type="submit" class="btn btn-success mb-3" value="Shorten">
+    </div>
+  </form>

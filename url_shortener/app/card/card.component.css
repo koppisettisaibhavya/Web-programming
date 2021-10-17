@@ -1,0 +1,31 @@
+.container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Make the image responsive */
+  .container-fluid img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Style the button and place it in the middle of the container/image */
+  .container-fluid .btn {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:green;
+    color: white;
+    font-size: 20px;
+    /* //padding: 12px 24px; */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .btn{
+      width:150px;
+      height:60px;
+  }
+  

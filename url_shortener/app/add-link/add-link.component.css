@@ -1,0 +1,9 @@
+.error{
+    border-color: red;
+}
+.success{
+    border-color: green;
+}
+.errtxt{
+    color:red;
+}

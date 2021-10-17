@@ -1,0 +1,21 @@
+<div class="container m-5">
+    <h1 class="text-center">List of links</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">URL</th>
+                <th scope="col">Shortened URL</th>
+                <th scope="col"># of clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of links">
+                <th>{{row.id}}</th>
+                <td>{{row.url}}</td>
+                <td><a href={{row.url}} (click)="edit_count(row.id)">www.bitly/{{row.short}}.com</a></td>
+                <td>{{row.no_of_clicks}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+<div *ngIf=!f>
+  <app-topbar1></app-topbar1>
+  <app-card (event1)="f=$event"></app-card>
+</div>
+<div *ngIf=f>
+  <app-topbar></app-topbar>
+  <div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div id="layoutSidenav_content">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+      <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+            <div>
+              <a href="#">Privacy Policy</a>
+              &middot;
+              <a href="#">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
