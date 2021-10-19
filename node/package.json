@@ -1,0 +1,19 @@
+{
+  "name": "bhavya",
+  "version": "1.0.0",
+  "description": "This is for node app",
+  "main": "api_fs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koppisettisaibhavya/nodejs_files_folders.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koppisettisaibhavya/nodejs_files_folders/issues"
+  },
+  "homepage": "https://github.com/koppisettisaibhavya/nodejs_files_folders#readme"
+}
